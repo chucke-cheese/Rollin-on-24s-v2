@@ -29,7 +29,7 @@ Basic Version of Getting started in Arduino (see ref 2A):
 The Arduino Uno is the basic beginners board (as well as the most common.) It has 14 digital input/outputs, 6 analog inputs, and a 16MHz clock. This allows it to interface with a variety of sensors and applications. The Uno operates at 5V, and can be powered via the USB port, or it can take an input voltage of 6-20V (7-12 recommended) on the Vin pin. It can also be powered through the barrel jack at 12V.The 5V pin can supply 1A max for powering external sensors and outputs, if more then that is required you need an external power supply. If you try to draw more then 1A, the board will be damaged. The Arduino Uno measures 2.7" by 2.1". After installing the Arduino IDE, you can begin programming the Arduino. After creating the code, or opening existing code, go to "Tools" - "Board", and choose which board you are using. Then, go to "Tools" - "Port" and choose the port that corresponds to your Arduino. Optimally, if you have only one Arduino plugged in, the port shown in the menu should be the correct one. More information and troubleshooting options can be found in ref 2B if you are having issues getting everything working. Reference 2C is the Arduino list of boards and products.
 
 The Relay Module:
-The 4-channel relay board is different from just 4 relays, because 4 relays would draw all their current from the digital pins of the Arduino, possibly damaging it. The 4-channel relay board adraws its power from either the 5v pin of the Arduino, or an external 5v power supply, and takes only its signal from the digital pins.
+The 4-channel relay board is different from just 4 relays, because 4 relays would draw all their current from the digital pins of the Arduino, damaging it. The 4-channel relay board adraws its power from either the 5v pin of the Arduino, or an external 5v power supply, and takes only its signal from the digital pins.
 
 The Card System Interface Board:
 All black wires are common ground, and all red wires are common 12VDC. This board contains 2 relays. One is connected to J3, and the other is a feature that enables the ticket mech shound the reader be unplugged.
@@ -63,7 +63,20 @@ Relay 2 (in2) NO contact carries 12v DC to the hopper motor.
 Relay 3 (in3) will eventually be an error indicator.
 The common lines from these three relays get tied together to 12v DC from the power supply.
 
-MK2 coin hopper connections:
+As this version removes the hopper control board, we have to wire the coin hopper directly.
+MK2 coin hopper connections from top to bottom:
+1-Low Level- Grey wire (not used in this version)
+2-Low Level (com)- Black wire (connect to ground)
+3-
+4-Button 12/24v- Yellow wire (connect to 12v DC)
+5-
+6-Sensor 1- Purple wire (connect to Arduino digital pin 3)
+7-24v DC
+8-12v DC- Orange wire (connect to Relay 2 NO contact)
+9-Ground- Black wire (connect to ground)
+According to the manual for the MK2 hopper, found on SuzoHapp (see ref 4) , 
+"You can use a 9-pin Molex connector (Suzo Part no. 22-01-2095) and crimp terminals
+(Suzo Part no. 08-50-0032) or equivalent with a pitch of 0.1” (2.54mm)."
 
 
 References
@@ -74,6 +87,7 @@ References
 2B.)https://www.arduino.cc/en/Guide/HomePage
 2C.)www.arduino.cc/en/Main/Products
 3.)https://patft.uspto.gov/netahtml/PTO/index.html Patent number US 10,223,867 B2
+4.)https://na.suzohapp.com/products/coin_hoppers/10-1700-41
 
 Interesting github, unrelated to this project: https://github.com/telarium/chuckECheese_animatronic
 
