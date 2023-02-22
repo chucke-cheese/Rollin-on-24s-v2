@@ -1,4 +1,4 @@
-The purpose of this project is to take a coin operated game such as UNIS's Rollin' On 24's, and modify it so that the guest no longer has to reach up to the top of the game where the coin mech is to play the game. The guest will be able to play the game from a button on the game, so that shorter guests can comfortably play the game, similar to how Andamiro's Spongebob Pineapple Arcade plays.
+The purpose of this project is to take a coin operated game such as UNIS's Rollin' On 24's, and modify it so that the guest no longer has to reach up to the top of the game where the coin mech is to play the game. The guest will be able to play the game from a button on the game, so that shorter guests can comfortably play the game, similar to how Andamiro's Spongebob Pineapple Arcade or Avengers Pusher plays.
 
 If the game to be modified is in an establishment that no longer uses tokens, the machine may be modified already to use a coin dispenser system, such as Speedy's One Stop Shop's Coin Hopper Mounting System (see ref 1). This version of the project no longer requires the hopper control board that comes with this system.
 
@@ -8,6 +8,7 @@ Family Fun's Football Fortune
 Family Fun's Pharaohs Treasure
 Family Fun's Soccer Fortune
 Bob's Space Racers' Rollin on 24s
+Andimiro's Winner's Wheel (requires different code and hopper)
 
 According to my list, the games that MAY work are:
 Family Fun's Gorilla King (possibly)
@@ -40,7 +41,7 @@ J5 connects to the reader via a ribbin cable.
 J7 connects to an optional external 12VDC power supply.
 
 Basic Theory of Operation:
-Normally, when the guest taps or swipes their card, the card system sends a credit-in signal to the hopper control board to tell it to dispense a coin. This project replaces this control board with an arduino, which counts the credit-in as a +1. The Arduino engages a relay that turns the light in the player button on. This button is connected to the arduino such that when the guest presses the button, the arduino directly tells the coin hopper to dispence a coin. The arduino monitors the on-board coin sensor inside the coin hopper, and disengages the player button when it has dispenced a coin. The arduino has a counter in it that will keep the button engaged until the player dispences all coins per the number of credits swiped. This version aslo has a timer in the code that clears the credits and disengages the guest button after five minutes of inactivity (another credit, dispensing a coin, etc) The coin switch in game is unaltered, and not connected to the arduino.
+Normally, when the guest taps or swipes their card, the card system sends a credit-in signal to the hopper control board to tell it to dispense a coin. This project replaces this control board with an arduino, which counts the credit-in as a +1. The Arduino engages a relay that turns the light in the player button on. This button is connected to the arduino such that when the guest presses the button, the arduino directly tells the coin hopper to dispence a coin. The arduino monitors the on-board coin sensor inside the coin hopper, and disengages the player button when it has dispenced a coin. The arduino has a counter in it that will keep the button engaged until the player dispences all coins per the number of credits swiped. This version also has a timer in the code that clears the credits and disengages the guest button after five minutes of inactivity (another credit, dispensing a coin, etc) The coin switch in game is unaltered, and not connected to the arduino.
 
 The coinmech will have to be removed for this to work. The hole will have to be covered by something. ICE Games sells a "Marquee Ball Catch" (RB3042) that works well for this, as it is a 1/8" thick sheet of black plastic.
 
@@ -48,7 +49,7 @@ Arduino Connections:
 I soldered a red wire to the center pin (12v DC) on the backside of the barrel jack of the arduino to go to a 12v pin.
 I also soldered a black wire to the bare metal connection on the side of the barrel jack (gnd) to go to a ground connection.
 The 5V pin connects to the VCC pin of the relay module.
-The ground pins go to the gnd pin of the relay board. 
+The ground pins go to the GND pin of the relay board. 
 Guest button connects to digital pin 1. Other side of button goes to ground.
 Hopper coin sensor goes to digital pin 3. On our connections, the wire was purple.
 Credit in (J3 brown line on the card system interface board) goes to digital pin 8.
