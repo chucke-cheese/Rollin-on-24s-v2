@@ -2,7 +2,7 @@ The purpose of this project is to take a coin operated game such as UNIS's Rolli
 
 If the game to be modified is in an establishment that no longer uses tokens, the machine may be modified already to use a coin dispenser system, such as Speedy's One Stop Shop's Coin Hopper Mounting System (see ref 1). This version of the project no longer requires the hopper control board that comes with this system.
 
-The circuit needed for this project is named "create new diagram" Keep in mind that for this to work, there must be enough room next to the coin chute to place a hopper so that the hopper can dispense the coin directly into the game (see Example.jpg). According to the list of 43 coin-action games I could find, the games that will work with this project are:
+The circuit needed for this project is named "create new diagram" Keep in mind that for this to work, there must be enough room next to the coin chute to place an MK2 coin hopper so that the hopper can dispense the coin directly into the game (see Example.jpg). According to the list of 43 coin-action games I could find, the games that will work with this project are:
 Family Fun's Basket Fortune
 Family Fun's Football Fortune
 Family Fun's Pharaohs Treasure
@@ -45,10 +45,25 @@ Normally, when the guest taps or swipes their card, the card system sends a cred
 The coinmech will have to be removed for this to work. The hole will have to be covered by something. ICE Games sells a "Marquee Ball Catch" (RB3042) that works well for this, as it is a 1/8" thick sheet of black plastic.
 
 Arduino Connections:
+I soldered a red wire to the center pin (12v DC) on the backside of the barrel jack of the arduino to go to a 12v pin.
+I also soldered a black wire to the bare metal connection on the side of the barrel jack (gnd) to go to a ground connection.
 The 5V pin connects to the VCC pin of the relay module.
-
+The ground pins go to the gnd pin of the relay board. 
+Guest button connects to digital pin 1. Other side of button goes to ground.
+Hopper coin sensor goes to digital pin 3. On our connections, the wire was purple.
+Credit in (J3 brown line on the card system interface board) goes to digital pin 8.
+In1 on the relay module goes to digital pin 5.
+In2 on the relay module goes to digital pin 7.
+In3 on the relay module goes to digital pin 12.
+In4 on the relay module goes to digital pin 13. (This relay does not get used in this version of the module, but I like having it wired just in case.)
 
 Relay connections:
+Relay 1 (in1) NO contact carries 12v DC to the player button light.
+Relay 2 (in2) NO contact carries 12v DC to the hopper motor.
+Relay 3 (in3) will eventually be an error indicator.
+The common lines from these three relays get tied together to 12v DC from the power supply.
+
+MK2 coin hopper connections:
 
 
 References
